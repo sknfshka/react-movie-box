@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import App from './components/App';
+import Catalog from './components/Catalog';
 import reducer from './reducers';
 import About from './components/About';
 import Track from './components/Track';
@@ -38,7 +38,7 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/login" component={Login} onEnter={authAlreadyPerformed}/>
-      <Route path="/" component={App} onEnter={requireAuth}/>
+      <Route path="/" component={Catalog} onEnter={requireAuth}/>
       <Route path="/about" component={About} onEnter={requireAuth}/>
       <Route path="/tracks/:id" component={Track} onEnter={requireAuth}/>
     </Router>

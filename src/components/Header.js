@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Header extends Component {
-  render() {
-    console.log('items', this.props.items);
-    return (
-      <div>
-        {this.props.items.map((item, index) =>
-          <a href={item.link} key={index}>{item.label}</a>
-        )}
-      </div>
-    );
-  }
+const Header = () => {
+  return (
+    <navbar className="nav-sticky">
+      <img className="navbar-login-icon" src="/images/video-camera-white.svg" role="presentation" />
+      <p className="navbar-login-title">MovieBox</p>
+    </navbar>
+  );
 }
 
 export default Header;

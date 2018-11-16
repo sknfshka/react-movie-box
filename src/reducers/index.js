@@ -3,13 +3,15 @@ import { routerReducer } from 'react-router-redux';
 
 import tracks from './tracks';
 import playlists from './playlists';
-import filterTracks from './filterTracks';
+import filterFilms from './filterFilms';
 import login from './login';
+import films from './films';
 
 export default combineReducers({
   routing: routerReducer,
   tracks,
   playlists,
-  filterTracks,
+  filterFilms,
+  films,
   login,
 });
