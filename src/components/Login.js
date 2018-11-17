@@ -12,6 +12,7 @@ class Login extends Component {
       login: '',
       password: '',
       submitted: false,
+      failedLogIn: props.failedLogIn,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -20,8 +21,17 @@ class Login extends Component {
   }
 
   handleChange(event) {
+    this.setState({
+      failedLogIn: false
+    });
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+  
+  componentWillReceiveProps = (nextProps) => {
+    this.setState({
+      failedLogIn: nextProps.failedLogIn
+    });
   }
 
   handleSubmit(event) {
@@ -29,7 +39,7 @@ class Login extends Component {
 
     this.setState({ submitted: true });
     const { login, password } = this.state;
-    if (login && password) { this.onLogIn(); }
+    if (login && password) { this.onLogIn(login, password); }
   }
 
   handleEmailChange(event) {
@@ -38,7 +48,7 @@ class Login extends Component {
   }
 
   render() {
-    const { login, password, submitted } = this.state;
+    var { login, password, submitted, failedLogIn } = this.state;
     return (
       <div className="wrapper login-wrapper">
         <form className="login-form" onSubmit={this.handleSubmit}>
@@ -46,11 +56,11 @@ class Login extends Component {
             <img src="/images/video-camera.svg" role="presentation" />
           </div>
           <h1 className="login-title">MovieBox</h1>
-          <div className={'form-item' + (submitted && !login ? ' has-error' : '')}>
+          <div className={'form-item' + (submitted && !login ? ' has-error' : '') + (submitted && failedLogIn ? ' has-warning' : '')}>
             <label className="form-item__label" htmlFor="login">Username</label>
             <input className="form-item__input" id="login" type="text" name="login" onChange={this.handleChange} />
           </div>
-          <div className={'form-item' + (submitted && !password ? ' has-error' : '')}>
+          <div className={'form-item' + (submitted && !password ? ' has-error' : '') + (submitted && failedLogIn ? ' has-warning' : '')}>
             <label className="form-item__label" htmlFor="password">Password</label>
             <input className="form-item__input" id="password" type="password" name="password" onChange={this.handleChange} />
           </div>
@@ -63,10 +73,10 @@ class Login extends Component {
 
 }
 export default connect(
-  (state, ownProps) => ({}),
+  (state) => ({ failedLogIn: state.login.failedLogIn }),
   dispatch => ({
-    onLogIn: () => {
-      dispatch({ type: 'LOG_IN' });
+    onLogIn: (login, password) => {
+      dispatch({ type: 'LOG_IN', payload: { login: login, password: password} });
       hashHistory.push('/');
     },
   })

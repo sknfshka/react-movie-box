@@ -6,6 +6,22 @@ button:focus {
   outline: none !important;
   outline: 0 !important; }
 
+  .has-warning .form-item__label {
+    color: #FFA500 !important;
+    -webkit-transition: color 200ms ease-out;
+    -moz-transition: color 200ms ease-out;
+    -o-transition: color 200ms ease-out;
+    transition: color 200ms ease-out;
+  }
+  
+  .has-warning .form-item__input {
+    border-color: #FFA500 !important;
+    -webkit-transition: border-color 200ms ease-out;
+    -moz-transition: border-color 200ms ease-out;
+    -o-transition: border-color 200ms ease-out;
+    transition: border-color 200ms ease-out;
+  }
+
 .has-error .form-item__label {
   color: #af0000 !important;
   -webkit-transition: color 200ms ease-out;
