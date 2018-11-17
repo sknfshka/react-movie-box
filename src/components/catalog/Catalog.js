@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Header from './Header';
+import Header from '../common/Header';
 import FilmFilter from './FilmFilter';
 import FilmsList from './FilmsList';
-import filterFilms from '../helpers/films.filters';
+import filterFilms from '../../helpers/films.filters';
 
 const Catalog = ({ films }) => {
   return (
@@ -21,6 +21,6 @@ const Catalog = ({ films }) => {
 
 
 export default connect(
-  (state) => ({ films: filterFilms(state.films, state.filterFilms) })
+  (state) => ({ films: filterFilms(state.films.allFilms, state.filterFilms) })
 )(Catalog);
 

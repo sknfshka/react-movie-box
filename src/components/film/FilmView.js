@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Header from './Header';
+import Header from '../common/Header';
 
 const FilmView = ({ film }) => {
   return (
@@ -16,7 +16,7 @@ const FilmView = ({ film }) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    film: state.films.find(f => f.id === Number(ownProps.params.id))
+    film: state.films.allFilms.find(f => f.id === Number(ownProps.params.id))
   };
 };
 

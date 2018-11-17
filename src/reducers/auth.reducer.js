@@ -1,7 +1,7 @@
 import { userExists } from '../helpers/user.loader';
 
 const initialState = { 
-  loggedIn : false,
+  loggedIn : true,
   failedLogIn : false,
 };
 

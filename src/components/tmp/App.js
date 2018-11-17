@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { getTracks } from '../actions/tracks';
+import { getTracks } from '../../actions/tmp/tracks';
 import Menu from './Menu';
 
 const App = ({ tracks, onAddTrack, onFindTrack, onGetTracks, ownProps }) => {

@@ -7,10 +7,10 @@ import thunk from 'redux-thunk';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import Catalog from './components/Catalog';
+import Catalog from './components/catalog/Catalog';
 import reducer from './reducers';
-import Film from './components/FilmView';
-import Login from './components/Login';
+import Film from './components/film/FilmView';
+import Login from './components/login/Login';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
