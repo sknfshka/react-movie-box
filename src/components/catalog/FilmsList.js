@@ -1,5 +1,5 @@
 import React from 'react';
-import Film from '../parts/Film';
+import Film from '../common/parts/Film';
 
 const FilmList = (props) => {
   const films = [];

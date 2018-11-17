@@ -1,16 +1,16 @@
-import { userExists } from '../helpers/user.loader';
+import { logIn } from '../helpers/user.loader';
 
 const initialState = { 
-  loggedIn : true,
+  loggedIn : false,
   failedLogIn : false,
 };
 
 export default function login(state = initialState, action) {
   if (action.type === 'LOG_IN' ) {
-    if (userExists(action.payload.login, action.payload.password)) { 
-      return { ...state, loggedIn: true }; 
+    const uid = logIn(action.payload.login, action.payload.password);
+    if (uid) { 
+      return { ...state, loggedIn: true, uid: uid, }; 
     } else { 
-      console.log("failed");
       return { ...state, failedLogIn: true } 
     }
   } else if (action.type === 'LOG_OUT') {

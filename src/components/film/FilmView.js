@@ -2,32 +2,44 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../common/Header';
+import FilmViewTop from './FilmViewTop';
+import FilmDescription from './FilmDescription';
+import FilmComments from './FilmComments';
 
-const FilmView = ({ id, film, onDetailsLoad }) => {
-  if (!film) { 
-    onDetailsLoad(id);
-    return null; 
+const FilmView = ({ filmId, userId, film, onDetailsLoad }) => {
+  if (!film) {
+    onDetailsLoad(filmId, userId);
+    return null;
   } else {
     return (
       <div>
         <Header />
         <div className="wrapper">
-          {film.title}
+          <FilmViewTop title={film.title} backgroundPicture={film.backgroundPicture} isFavorite={film.personal.isFavorite}/>
+          <FilmDescription film={film} />
+          <FilmComments comments={film.comments} />
         </div>
       </div>
     );
-  } 
+  }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    film: state.films.filmToDisplay,
-    id: Number(ownProps.params.id),
-  };
-};
-
-const mapDispatchToProps = (dispatch) => ({
-  onDetailsLoad: (id) => { dispatch({ type: 'GET_FILM_DETAILS', payload: id }) },
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilmView);
+export default connect(
+  (state, ownProps) => {
+    return {
+      film: state.films.filmToDisplay,
+      filmId: Number(ownProps.params.id),
+      userId: state.login.uid,
+    };
+  },
+  (dispatch) => ({
+    onDetailsLoad: (filmdId, userId) => {
+      dispatch({
+        type: 'GET_FILM_DETAILS', payload: {
+          filmId: filmdId,
+          userId: userId,
+        }
+      })
+    },
+  })
+)(FilmView);

@@ -223,10 +223,11 @@
     padding: 10px 0;
     width: 100%; }
   .comments .comment-item {
+    margin: auto;
     margin-bottom: 20px;
     padding: 30px;
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
     background: #f7f7f7;
     font-weight: 300;
     color: black;
@@ -241,6 +242,7 @@
       color: #7776fe;
       font-size: 14px; }
     .comments .comment-item .comment-author {
+      color: #7776fe;
       font-weight: 600;
       cursor: pointer; }
     .comments .comment-item .comment-data {
