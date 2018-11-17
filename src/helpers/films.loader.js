@@ -4,8 +4,17 @@ export function loadFilmDetails(id) {
     return filmsWithDetails.find(film => film.id === id);
 }
 
+export function switchFilmFavorite(userId, filmId) {
+    const i = userInfoToFilms.findIndex(userToFilm => userToFilm.userId === userId);
+    if (i !== -1) {
+        const j = userInfoToFilms[i].films.findIndex(film => film.filmId === filmId);
+        if (j !== -1) {
+            userInfoToFilms[i].films[j].isFavorite = !userInfoToFilms[i].films[j].isFavorite;
+        }
+    }
+}
+
 export function getUserInfoToFilm(filmId, userId) {
-    console.log(filmId + " - " + userId);
     const userToFilm = userInfoToFilms.find(userToFilm => userToFilm.userId === userId);
     const result = userToFilm.films.find(film => film.filmId === filmId);
     return {
@@ -25,7 +34,7 @@ films = [
         date: new Date(2018, 12, 6),
         rating: 7.0,
         picture: "/images/film-1.jpg",
-        categories: ["Action", "Adventure", "Fantasy" ],
+        categories: ["Action", "Adventure", "Fantasy"],
     },
     {
         id: 2,
@@ -33,7 +42,7 @@ films = [
         date: new Date(2013, 7, 18),
         rating: 7.0,
         picture: "/images/film-2.jpg",
-        categories: ["Comedy", "Musical" , "Romance" ],
+        categories: ["Comedy", "Musical", "Romance"],
     },
     {
         id: 3,
@@ -41,7 +50,7 @@ films = [
         date: new Date(2018, 8, 2),
         rating: 7.8,
         picture: "/images/film-3.jpg",
-        categories: ["Biography" , "Drama" , "History" ],
+        categories: ["Biography", "Drama", "History"],
     },
     {
         id: 4,
@@ -49,7 +58,7 @@ films = [
         date: new Date(2012, 17, 1),
         rating: 8.4,
         picture: "/images/film-4.jpg",
-        categories: ["Drama" , "Western" ],
+        categories: ["Drama", "Western"],
     },
     {
         id: 5,
@@ -57,7 +66,7 @@ films = [
         date: new Date(2018, 11, 1),
         rating: 8.4,
         picture: "/images/film-5.jpg",
-        categories: ["Biography" , "Drama" , "Music" ],
+        categories: ["Biography", "Drama", "Music"],
     },
     {
         id: 6,
@@ -65,7 +74,7 @@ films = [
         date: new Date(2016, 11, 17),
         rating: 7.3,
         picture: "/images/film-6.jpg",
-        categories: ["Adventure" , "Fantasy" ],
+        categories: ["Adventure", "Fantasy"],
     },
     {
         id: 7,
@@ -73,7 +82,7 @@ films = [
         date: new Date(1997, 10, 31),
         rating: 4.0,
         picture: "/images/film-7.jpg",
-        categories: ["Adventure" , "Comedy" ],
+        categories: ["Adventure", "Comedy"],
     },
     {
         id: 8,
@@ -81,7 +90,7 @@ films = [
         date: new Date(2009, 4, 2),
         rating: 2.6,
         picture: "/images/film-8.jpg",
-        categories: ["Action" , "Adventure" , "Fantasy" ],
+        categories: ["Action", "Adventure", "Fantasy"],
     }
 ]
 
@@ -142,7 +151,7 @@ filmsWithDetails = [
         date: new Date(2018, 12, 6),
         rating: 7,
         picture: "/images/film-1.jpg",
-        categories: ["Action", "Adventure", "Fantasy" ],
+        categories: ["Action", "Adventure", "Fantasy"],
 
         time: '2h 33min',
         backgroundPicture: "/images/film-1-bg.jpg",
@@ -167,7 +176,7 @@ filmsWithDetails = [
         date: new Date(2013, 7, 18),
         rating: 7,
         picture: "/images/film-2.jpg",
-        categories: ["Comedy", "Musical" , "Romance" ],
+        categories: ["Comedy", "Musical", "Romance"],
 
         time: '1h 54min',
         backgroundPicture: "/images/film-2-bg.jpg",
@@ -192,7 +201,7 @@ filmsWithDetails = [
         date: new Date(2018, 8, 2),
         rating: 7.8,
         picture: "/images/film-3.jpg",
-        categories: ["Biography" , "Drama" , "History" ],
+        categories: ["Biography", "Drama", "History"],
 
         time: '3 seasons',
         backgroundPicture: "/images/film-3-bg.jpg",
@@ -217,12 +226,12 @@ filmsWithDetails = [
         date: new Date(2012, 17, 1),
         rating: 8.4,
         picture: "/images/film-4.jpg",
-        categories: ["Drama" , "Western" ],
+        categories: ["Drama", "Western"],
 
         time: '2h 45min',
         backgroundPicture: "/images/film-4-bg.jpg",
         yearAllowed: "18+",
-        stars: [ "Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio"],
+        stars: ["Jamie Foxx", "Christoph Waltz", "Leonardo DiCaprio"],
         director: "Quentin Tarantino",
         writer: "Quentin Tarantino",
         description: "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
@@ -237,19 +246,19 @@ filmsWithDetails = [
         ]
     },
 
-    
+
     {
         id: 5,
         title: "Bohemian Rhapsody",
         date: new Date(2018, 11, 1),
         rating: 8.4,
         picture: "/images/film-5.jpg",
-        categories: ["Biography" , "Drama" , "Music" ],
+        categories: ["Biography", "Drama", "Music"],
 
         time: '2h 14min',
         backgroundPicture: "/images/film-5-bg.jpg",
         yearAllowed: "18+",
-        stars: [ "Rami Malek", "Lucy Boynton", "Gwilym Lee" ],
+        stars: ["Rami Malek", "Lucy Boynton", "Gwilym Lee"],
         director: "Bryan Singer",
         writer: "Anthony McCarten",
         description: "A chronicle of the years leading up to Queen's legendary appearance at the Музыкальный фестиваль Live Aid (1985) concert.",
@@ -270,12 +279,12 @@ filmsWithDetails = [
         date: new Date(2016, 11, 17),
         rating: 7.3,
         picture: "/images/film-6.jpg",
-        categories: ["Adventure" , "Fantasy" ],
+        categories: ["Adventure", "Fantasy"],
 
         time: '2h 13min',
         backgroundPicture: "/images/film-6-bg.jpg",
         yearAllowed: "12+",
-        stars: [ "Eddie Redmayne", "Katherine Waterston", "Alison Sudol" ],
+        stars: ["Eddie Redmayne", "Katherine Waterston", "Alison Sudol"],
         director: "David Yates",
         writer: "J.K. Rowlingn",
         description: "In mid-20s New York, Newt Scamander, the British young activist wizard, arrives in town, holding a mysterious leather suitcase which shelters a wide array of diverse and magical creatures that exist among us. Amid an already fragile equilibrium of secrecy, and the increasing disasters ascribed to the dark wizard, Gellert Grindelwald, Newt's precious suitcase will be lost--and to make matters worse--several creatures will manage to escape. Before long, this situation will catch Senior Auror Percival Graves' attention who will target Newt, in the background of an invisible, devastating, and utterly unpredictable menace that still wreaks havoc on 5th Avenue. In the end, is there a hidden agenda behind Graves' intentions; moreover, what will happen to the remaining fantastic beasts still loose in the streets?",
@@ -295,12 +304,12 @@ filmsWithDetails = [
         date: new Date(1997, 10, 31),
         rating: 4.0,
         picture: "/images/film-7.jpg",
-        categories: ["Adventure" , "Comedy" ],
+        categories: ["Adventure", "Comedy"],
 
         time: '1h 44min',
         backgroundPicture: "/images/film-7-bg.jpg",
         yearAllowed: "0+",
-        stars: [ "Bob Hoskins", "John Leguizamo", "Dennis Hopper" ],
+        stars: ["Bob Hoskins", "John Leguizamo", "Dennis Hopper"],
         director: "Annabel Jankel",
         writer: "Parker Bennett",
         description: "Two Brooklyn plumbers, Mario and Luigi, must travel to another dimension to rescue a princess from the evil dictator King Koopa and stop him from taking over the world.",
@@ -320,12 +329,12 @@ filmsWithDetails = [
         date: new Date(2009, 4, 2),
         rating: 2.6,
         picture: "/images/film-8.jpg",
-        categories: ["Action" , "Adventure" , "Fantasy" ],
+        categories: ["Action", "Adventure", "Fantasy"],
 
         time: '1h 25min ',
         backgroundPicture: "/images/film-8-bg.jpg",
         yearAllowed: "12+",
-        stars: [ "Justin Chatwin", "James Marsters", "Yun-Fat Chow" ],
+        stars: ["Justin Chatwin", "James Marsters", "Yun-Fat Chow"],
         director: "James Wong",
         writer: "Ben Ramsey",
         description: "The young warrior Son Goku sets out on a quest, racing against time and the vengeful King Piccolo, to collect a set of seven magical orbs that will grant their wielder unlimited power.",

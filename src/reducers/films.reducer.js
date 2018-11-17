@@ -1,4 +1,4 @@
-import { loadFilms, loadFilmDetails, getUserInfoToFilm } from '../helpers/films.loader';
+import { loadFilms, loadFilmDetails, getUserInfoToFilm, switchFilmFavorite } from '../helpers/films.loader';
 
 const initialState = {
   allFilms: loadFilms(),
@@ -14,6 +14,14 @@ export default function films(state = initialState, action) {
     }
   } else if (action.type === 'FETCH_ALL_FILMS') {
     return { allFilms: loadFilms() }
+  } else if (action.type === 'FAVORITE_FILM') {
+    switchFilmFavorite(action.payload.userId, action.payload.filmId);
+    return {
+      ...state, filmToDisplay: {
+        ...loadFilmDetails(action.payload.filmId),
+        personal: getUserInfoToFilm(action.payload.filmId, action.payload.userId),
+      }
+    }
   }
 
   return state;

@@ -15,7 +15,7 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad }) => {
       <div>
         <Header />
         <div className="wrapper">
-          <FilmViewTop title={film.title} backgroundPicture={film.backgroundPicture} isFavorite={film.personal.isFavorite} />
+          <FilmViewTop />
           <FilmDescription film={film} />
           <FilmComments comments={film.comments} />
         </div>
