@@ -6,7 +6,7 @@ import FilmViewTop from './FilmViewTop';
 import FilmDescription from './FilmDescription';
 import FilmComments from './FilmComments';
 
-const FilmView = ({ filmId, userId, film, onDetailsLoad }) => {
+const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite }) => {
   if (!film || filmId != film.id) {
     onDetailsLoad(filmId, userId);
     return null;
@@ -15,7 +15,10 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad }) => {
       <div>
         <Header />
         <div className="wrapper">
-          <FilmViewTop />
+          <FilmViewTop
+            film={film}
+            userId={userId}
+            doSwitchFavorite={doFilmFavorite} />
           <FilmDescription film={film} />
           <FilmComments comments={film.comments} />
         </div>
@@ -36,6 +39,14 @@ export default connect(
     onDetailsLoad: (filmdId, userId) => {
       dispatch({
         type: 'GET_FILM_DETAILS', payload: {
+          filmId: filmdId,
+          userId: userId,
+        }
+      })
+    },
+    doFilmFavorite: (filmdId, userId) => {
+      dispatch({
+        type: 'FAVORITE_FILM', payload: {
           filmId: filmdId,
           userId: userId,
         }
