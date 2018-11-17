@@ -3,21 +3,31 @@ import { connect } from 'react-redux';
 
 import Header from '../common/Header';
 
-const FilmView = ({ film }) => {
-  return (
-    <div>
-      <Header />
-      <div className="wrapper">
-        {film.title}
+const FilmView = ({ id, film, onDetailsLoad }) => {
+  if (!film) { 
+    onDetailsLoad(id);
+    return null; 
+  } else {
+    return (
+      <div>
+        <Header />
+        <div className="wrapper">
+          {film.title}
+        </div>
       </div>
-    </div>
-  );
+    );
+  } 
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    film: state.films.allFilms.find(f => f.id === Number(ownProps.params.id))
+    film: state.films.filmToDisplay,
+    id: Number(ownProps.params.id),
   };
 };
 
-export default connect(mapStateToProps)(FilmView);
+const mapDispatchToProps = (dispatch) => ({
+  onDetailsLoad: (id) => { dispatch({ type: 'GET_FILM_DETAILS', payload: id }) },
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilmView);
