@@ -51,9 +51,16 @@ const FilmFilter = ({ onFilterTitle, onFilterCategory, onSortBy, onFilterRating,
             id="category-filter" name="category" ref={(select) => { categorySelect = select }} onChange={filterCategory}>
             <option value="all">All</option>
             <option value="comedy">Comedy</option>
+            <option value="action">Action</option>
+            <option value="adventure">Adventure</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="drama">Drama</option>
+            <option value="western">Western</option>
             <option value="musical">Musical</option>
-            <option value="horror">Horror</option>
-            <option value="thriller">Thriller</option>
+            <option value="romance">Romance</option>
+            <option value="biography">Biography</option>
+            <option value="history">History</option>
+            <option value="music">Music</option>
           </select><i className="form-item__select-arrow"></i></div>
         <div className="form-item">
           <label className="form-item__label" htmlFor="sort-by">Sort By</label>
