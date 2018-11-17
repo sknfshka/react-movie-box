@@ -1,4 +1,4 @@
-import { userExists } from '../helpers/userLoader';
+import { userExists } from '../helpers/user.loader';
 
 const initialState = { 
   loggedIn : false,

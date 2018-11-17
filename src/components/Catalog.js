@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Header from './Header';
 import FilmFilter from './FilmFilter';
 import FilmsList from './FilmsList';
-import filterFilms from '../helpers/filtering';
+import filterFilms from '../helpers/films.filters';
 
 const Catalog = ({ films }) => {
   return (

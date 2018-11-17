@@ -9,8 +9,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import Catalog from './components/Catalog';
 import reducer from './reducers';
-import About from './components/About';
-import Track from './components/Track';
+import Film from './components/FilmView';
 import Login from './components/Login';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -37,10 +36,9 @@ function authAlreadyPerformed(nextState, replace) {
 ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
-      <Route path="/login" component={Login} onEnter={authAlreadyPerformed}/>
-      <Route path="/" component={Catalog} onEnter={requireAuth}/>
-      <Route path="/about" component={About} onEnter={requireAuth}/>
-      <Route path="/tracks/:id" component={Track} onEnter={requireAuth}/>
+      <Route path="/login" component={Login} onEnter={authAlreadyPerformed} />
+      <Route path="/" component={Catalog} onEnter={requireAuth} />
+      <Route path="/film/:id" component={Film} onEnter={requireAuth} />
     </Router>
   </Provider>,
   document.getElementById('root')

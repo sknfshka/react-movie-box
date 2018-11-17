@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const calculateColor = (rating) => {
   if (rating >= 7) return "film__rating_excelent";
@@ -10,9 +11,9 @@ const Film = (props) => {
   const { film } = props;
   return (
     <div className="film">
-      <div className="film__poster"><a className="film__poster-link" href="http://localhost:8090/film"><img src={film.picture}
-        alt={film.title + " poster"} /></a></div>
-      <a href="http://localhost:8090/film" className="film__title">{film.title}</a>
+      <div className="film__poster"><Link className="film__poster-link" to={`/film/${film.id}`}><img src={film.picture}
+        alt={film.title + " poster"} /></Link></div>
+      <Link className="film__title" to={`/film/${film.id}`}>{film.title}</Link>
       <div className="film__date">{film.date.toLocaleString('eng', {
         year: 'numeric',
         month: 'long',

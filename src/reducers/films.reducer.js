@@ -1,4 +1,4 @@
-import { loadFilms } from '../helpers/filmsLoader';
+import { loadFilms } from '../helpers/films.loader';
 
 export default function films(state = loadFilms(), action) {
   if (action.type === 'ADD_TRACK') {
