@@ -4,7 +4,8 @@ import { Link } from 'react-router';
 const Comment = ({ comment }) => {
   return (
     <div className="comment-item">
-      <Link className="comment-author" to={`/profile/${comment.author.id}`}>{comment.author.name}</Link>
+      { comment.film ? <Link className="comment-author" to={`/film/${comment.film.id}`}>{comment.film.title}</Link> : null }
+      { comment.author ? <Link className="comment-author" to={`/profile/${comment.author.id}`}>{comment.author.name}</Link> : null }
       <p className="comment-data">{comment.date.toLocaleString('eng', {
         year: 'numeric',
         month: 'long',

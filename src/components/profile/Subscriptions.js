@@ -2,7 +2,7 @@ import React from 'react';
 
 import User from '../common/parts/User';
 
-let Subscriptions = ({ user, isYourProfile }) => {
+const Subscriptions = ({ user, isYourProfile }) => {
 
   let onRequest = [];
   if (isYourProfile) {

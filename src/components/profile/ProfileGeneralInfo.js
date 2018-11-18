@@ -1,6 +1,6 @@
 import React from 'react';
 
-let ProfileGeneralInfo = ({ user, isYourProfile }) => {
+const ProfileGeneralInfo = ({ user, isYourProfile }) => {
   return (
     <div className="left-siderbar-dark">
       <div className="profile-info">

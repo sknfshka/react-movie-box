@@ -2,7 +2,7 @@ import React from 'react';
 
 import User from '../common/parts/User';
 
-let Subscribers = ({ user }) => {
+const Subscribers = ({ user }) => {
 
   let toApprove = [];
   const onApproveRequest = (subId) => {

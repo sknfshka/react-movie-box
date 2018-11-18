@@ -1,15 +1,15 @@
 import { logIn } from '../helpers/user.loader';
 
-const initialState = { 
+/*const initialState = { 
   loggedIn : false,
   failedLogIn : false,
-};
-/*
+};*/
+
 const initialState = { 
   loggedIn : true,
   failedLogIn : false,
   uid : 321,
-};*/
+};
 
 export default function login(state = initialState, action) {
   if (action.type === 'LOG_IN' ) {

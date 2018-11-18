@@ -3,11 +3,11 @@ import React from 'react';
 import FilmsInfo from './FilmsInfo';
 import SubsInfo from './SubsInfo';
 
-let ProfileDetailedInfo = ({ user, isYourProfile }) => {
+const ProfileDetailedInfo = ({ user, isYourProfile }) => {
 
   return (
     <div className="right-container">
-      <FilmsInfo user={user} />
+      <FilmsInfo user={user} isYourProfile={isYourProfile}/>
       <SubsInfo user={user} isYourProfile={isYourProfile} />
     </div>
   )

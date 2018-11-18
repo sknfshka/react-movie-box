@@ -27,18 +27,10 @@ class SubsInfo extends React.Component {
     return (
       <div className="profile-table pink">
         <div className="profile-nav">
-          <div className={"tablinks" + (showSubscriptions ? " active" : "")}
-            onClick={() => this.switchTab()}
-            data-name="subscriptions"
-            data-color="pink"
-            id="defaultOpenPink">Subscriptions</div>
-
+          <div className={"tablinks" + (showSubscriptions ? " active" : "")} onClick={() => this.switchTab()}>Subscriptions</div>
           {
             isYourProfile ?
-              <div className={"tablinks" + (!showSubscriptions ? " active" : "")}
-                onClick={() => this.switchTab()}
-                data-name="subscribers"
-                data-color="pink">Subscribers</div>
+              <div className={"tablinks" + (!showSubscriptions ? " active" : "")} onClick={() => this.switchTab()}>Subscribers</div>
               : null
           }
         </div>
