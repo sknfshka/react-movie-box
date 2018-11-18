@@ -24,7 +24,8 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatin
             userId={userId}
             onRatingChanged={onRatingChanged}
           />
-          <FilmComments comments={film.comments} />
+          <FilmComments 
+            comments={film.comments} />
         </div>
       </div>
     );
@@ -57,7 +58,6 @@ export default connect(
       })
     },
     onRatingChanged: (userId, filmdId, newRating) => {
-      console.log("changed");
       dispatch({
         type: 'UPDATE_FILM_RATING', payload: {
           userId: userId,

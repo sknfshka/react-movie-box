@@ -6,11 +6,13 @@ const Films = ({ films }) => {
 
   let toDisplay = [];
 
-  films.forEach((film, id) => {
-    toDisplay.push(
-      <Film film={film} key={id} />
-    );
-  });
+  if (films) {
+    films.forEach((film, id) => {
+      toDisplay.push(
+        <Film film={film} key={id} />
+      );
+    });
+  }
 
   return (
     <div className="profile-content-tab films active">

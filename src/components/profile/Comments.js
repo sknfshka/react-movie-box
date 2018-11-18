@@ -5,11 +5,13 @@ import Comment from '../common/parts/Comment'
 const Comments = ({ comments }) => {
   let toDisplay = [];
 
-  comments.forEach((comment, id) => {
-    toDisplay.push(
-      <Comment comment={comment} key={id} />
-    );
-  });
+  if (comments) {
+    comments.forEach((comment, id) => {
+      toDisplay.push(
+        <Comment comment={comment} key={id} />
+      );
+    });
+  }
 
 
   return (

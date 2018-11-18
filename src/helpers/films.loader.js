@@ -1,4 +1,4 @@
-import {makeFilmFavorite, removeFilmFromFavorite, makeFilmVisited} from './user.loader';
+import { makeFilmFavorite, removeFilmFromFavorite, makeFilmVisited } from './user.loader';
 
 let filmsWithDetails, userInfoToFilms, films;
 
@@ -175,18 +175,6 @@ filmsWithDetails = [
         director: "Christian Rivers",
         writer: "Fran Walsh",
         description: "A mysterious young woman named Hester Shaw joins forces with Anna Fang, a dangerous outlaw with a bounty on her head, and Tom Natsworthy, an outcast from London, to lead a rebellion against a giant predator city on wheels.",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     },
     {
         id: 2,
@@ -203,18 +191,6 @@ filmsWithDetails = [
         director: "Ol Parker",
         writer: "Ol Parker",
         description: "Five years after the events of Mamma Mia! (2008), Sophie prepares for the grand reopening of the Hotel Bella Donna as she learns more about her mother's past.",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     },
     {
         id: 3,
@@ -231,18 +207,6 @@ filmsWithDetails = [
         director: "-",
         writer: "Domenico Sica",
         description: "1470. Medici's family power has been consolidated over time. Lorenzo is called to take his father's place after an attempt on his life which reveals years of poor bank management from them. As new head of Medici's family he has to take care of his brother Giuliano and his sister Bianca. He marries Clarice Orsini, a noble woman from Rome, and his friendship with Botticelli gives life to Renaissance. His contrast with Pope Sixtus brings Florence to the most bloody moment of its History, the Pazzi conspiracy.",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     },
     {
         id: 4,
@@ -262,13 +226,13 @@ filmsWithDetails = [
         comments: [
             {
                 author: {
-                    name: "Jhon Black",
-                    id: 1,
+                    name: "Arthor Morgan",
+                    id: 321,
                 },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
+                text: "Really like that i guess everyone enjoy this movie. And if not ...",
             },
         ]
     },
@@ -318,18 +282,6 @@ filmsWithDetails = [
         director: "David Yates",
         writer: "J.K. Rowlingn",
         description: "In mid-20s New York, Newt Scamander, the British young activist wizard, arrives in town, holding a mysterious leather suitcase which shelters a wide array of diverse and magical creatures that exist among us. Amid an already fragile equilibrium of secrecy, and the increasing disasters ascribed to the dark wizard, Gellert Grindelwald, Newt's precious suitcase will be lost--and to make matters worse--several creatures will manage to escape. Before long, this situation will catch Senior Auror Percival Graves' attention who will target Newt, in the background of an invisible, devastating, and utterly unpredictable menace that still wreaks havoc on 5th Avenue. In the end, is there a hidden agenda behind Graves' intentions; moreover, what will happen to the remaining fantastic beasts still loose in the streets?",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     },
     {
         id: 7,
@@ -346,18 +298,6 @@ filmsWithDetails = [
         director: "Annabel Jankel",
         writer: "Parker Bennett",
         description: "Two Brooklyn plumbers, Mario and Luigi, must travel to another dimension to rescue a princess from the evil dictator King Koopa and stop him from taking over the world.",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     },
     {
         id: 8,
@@ -374,17 +314,5 @@ filmsWithDetails = [
         director: "James Wong",
         writer: "Ben Ramsey",
         description: "The young warrior Son Goku sets out on a quest, racing against time and the vengeful King Piccolo, to collect a set of seven magical orbs that will grant their wielder unlimited power.",
-        comments: [
-            {
-                author: {
-                    name: "Jhon Black",
-                    id: 1,
-                },
-                date: new Date(2013, 10, 2),
-                rating: 7.5,
-                title: "Best Movie",
-                text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-            },
-        ]
     }
 ]

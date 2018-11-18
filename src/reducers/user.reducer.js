@@ -2,7 +2,7 @@ import { loadUserDetails, approveUser, deleteUser, unfollowFrom, cancelRequestTo
 
 export default function user(state = {}, action) {
   if (action.type === 'GET_USER_DETAILS') {
-    return loadUserDetails(action.payload.userId);
+    return {...loadUserDetails(action.payload.userId)};
   } else if (action.type === 'APPROVE_USER') {
     approveUser(action.payload.myId, action.payload.userId);
     return {

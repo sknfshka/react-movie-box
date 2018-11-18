@@ -1,11 +1,16 @@
 let userDetails = {};
+let user1 = {};
+let user2 = {};
 
 export function logIn(login, password) {
   return login && password && login === 'admin' && password === 'admin' ? 321 : undefined;
 }
 
 export function loadUserDetails(userId) {
-  return userDetails;
+  if (userId === 321) { return userDetails; }
+  if (userId === 1) { return user1; }
+  if (userId === 2) { return user2; }
+  return {};
 }
 
 export function makeFilmFavorite(film) {
@@ -57,36 +62,26 @@ userDetails = {
   myComments: [
     {
       film: {
-        id: 2,
-        title: "Mamma Mia! 2",
+        id: 4,
+        title: "Django Unchained",
       },
       date: new Date(2013, 10, 2),
       rating: 7.5,
       title: "Best Movie",
-      text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-    },
-    {
-      film: {
-        id: 2,
-        title: "Mamma Mia! 2",
-      },
-      date: new Date(2013, 10, 2),
-      rating: 7.5,
-      title: "Best Movie",
-      text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
-    },
+      text: "Really like that i guess everyone enjoy this movie. And if not ...",
+    }
   ],
 
   subscriptions: [
     {
       id: 1,
-      name: "Some User",
-      approved: true,
+      name: "Jhon Black",
+      approved: false,
     },
     {
       id: 2,
-      name: "Other User",
-      approved: false,
+      name: "James Smith",
+      approved: true,
     },
 
   ],
@@ -94,17 +89,84 @@ userDetails = {
   subscribers: [
     {
       id: 1,
-      name: "Some User",
+      name: "Jhon Black",
       approved: true,
       // logo: "/images/user-321.jpg",
     },
     {
       id: 2,
-      name: "Other User",
+      name: "James Smith",
       // logo: "/images/user-321.jpg",
       approved: false,
     },
 
+  ],
+}
+
+user1 = {
+  id: 1,
+  name: "Jhon Black",
+  hasPermission: false, // allows to watch favorite catalog
+  email: "arthur.morgan@mail.com",
+  registrationDate: new Date(2013, 7, 18),
+  visitedFilms: [],
+  favoriteFilms: [
+    {
+      id: 4,
+      title: "Django Unchained",
+      date: new Date(2012, 17, 1),
+      rating: 8.4,
+      picture: "/images/film-4.jpg",
+      categories: ["Drama", "Western"],
+    },
+  ],
+  myComments: [
+    {
+      film: {
+        id: 5,
+        title: "Bohemian Rhapsody",
+      },
+      date: new Date(2013, 10, 2),
+      rating: 7.5,
+      title: "Best Movie",
+      text: "«Богемная рапсодия» — автобиографическая, художественная картина. Можно сказать, что она получилась довольно спорной в силу того, что аудитория разделилась на несколько лагерей. Одни полностью поддерживают мысли по поводу её качества, а некоторые не согласны в корне. Что же получается? Получается большой ажиотаж. С учётом этого за первую неделю проката удалось собрать 150 миллионов долларов. Это внушительные цифры с опором на то, что было затрачено всего 50 миллионов.",
+    }
+  ],
+
+  subscriptions: [
+    {
+      id: 2,
+      name: "James Smith",
+      approved: false,
+    },
+  ],
+
+}
+
+user2 = {
+  id: 2,
+  name: "James Smith",
+  hasPermission: true, // allows to watch favorite catalog
+  email: "arthur.morgan@mail.com",
+  registrationDate: new Date(2013, 7, 18),
+  visitedFilms: [],
+  favoriteFilms: [
+    {
+      id: 4,
+      title: "Django Unchained",
+      date: new Date(2012, 17, 1),
+      rating: 8.4,
+      picture: "/images/film-4.jpg",
+      categories: ["Drama", "Western"],
+    },
+  ],
+
+  subscriptions: [
+    {
+      id: 321,
+      name: "Arthor Morgan",
+      approved: true,
+    },
   ],
 
 }
