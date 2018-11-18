@@ -2,12 +2,12 @@ import React from 'react';
 
 import User from '../common/parts/User';
 
-const Subscriptions = ({ user, isYourProfile }) => {
+const Subscriptions = ({ user, isYourProfile, userFunctions }) => {
 
   let onRequest = [];
   if (isYourProfile) {
     const onCancelRequest = (subId) => {
-      console.log("User " + user.id + " cancels sub request from " + subId);
+      userFunctions.onCancelRequest(user.id, subId);
     }
 
     user.subscriptions
@@ -30,7 +30,7 @@ const Subscriptions = ({ user, isYourProfile }) => {
 
   let followed = [];
   const onUnFollow = (subId) => {
-    console.log("User " + user.id + " unfollows from " + subId);
+    userFunctions.onUnfollow(user.id, subId);
   }
   user.subscriptions
     .filter(s => s.approved)

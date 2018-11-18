@@ -20,6 +20,22 @@ export function makeFilmVisited(film) {
   if (!userDetails.visitedFilms.includes(film)) { userDetails.visitedFilms.push(film); }
 }
 
+export function approveUser(myId, userId) {
+  userDetails.subscribers[userDetails.subscribers.findIndex(user => user.id === userId)].approved = true;
+}
+
+export function deleteUser(myId, userId) {
+  userDetails.subscribers.splice(userDetails.subscribers.findIndex(user => user.id === userId), 1);
+}
+
+export function unfollowFrom(myId, userId) {
+  userDetails.subscriptions.splice(userDetails.subscriptions.findIndex(user => user.id === userId), 1);
+}
+
+export function cancelRequestTo(myId, userId) {
+  userDetails.subscriptions.splice(userDetails.subscriptions.findIndex(user => user.id === userId), 1);
+}
+
 userDetails = {
   id: 321,
   name: "Arhur Morgan",
@@ -27,15 +43,7 @@ userDetails = {
   email: "arthur.morgan@mail.com",
   logo: "/images/user-321.jpg",
   registrationDate: new Date(2013, 7, 18),
-  visitedFilms: [
-    {
-      id: 4,
-      title: "Django Unchained",
-      date: new Date(2012, 17, 1),
-      rating: 8.4,
-      picture: "/images/film-4.jpg",
-    },
-  ],
+  visitedFilms: [],
   favoriteFilms: [
     {
       id: 4,
@@ -43,6 +51,7 @@ userDetails = {
       date: new Date(2012, 17, 1),
       rating: 8.4,
       picture: "/images/film-4.jpg",
+      categories: ["Drama", "Western"],
     },
   ],
   myComments: [

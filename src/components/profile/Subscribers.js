@@ -2,11 +2,11 @@ import React from 'react';
 
 import User from '../common/parts/User';
 
-const Subscribers = ({ user }) => {
+const Subscribers = ({ user, userFunctions }) => {
 
   let toApprove = [];
   const onApproveRequest = (subId) => {
-    console.log("User " + user.id + " approves sub request from " + subId);
+    userFunctions.onApproveUser(user.id, subId);
   }
 
   user.subscribers
@@ -28,7 +28,7 @@ const Subscribers = ({ user }) => {
 
   let toRemove = [];
   const onRemove = (subId) => {
-    console.log("User " + user.id + " removes sub " + subId);
+    userFunctions.onDeleteUser(user.id, subId);
   }
   user.subscribers
     .filter(s => s.approved)

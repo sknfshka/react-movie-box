@@ -20,7 +20,7 @@ class SubsInfo extends React.Component {
   }
 
   render = () => {
-    const { user, isYourProfile, activeTab } = this.state;
+    const { user, isYourProfile, activeTab, userFunctions } = this.state;
     return (
       <div className="profile-table pink">
         <div className="profile-nav">
@@ -34,8 +34,8 @@ class SubsInfo extends React.Component {
 
         </div>
 
-        {activeTab === "subscriptions" ? <Subscriptions user={user} isYourProfile={isYourProfile} /> : null}
-        {activeTab === "subscribers" ? <Subscribers user={user} /> : null}
+        {activeTab === "subscriptions" ? <Subscriptions user={user} isYourProfile={isYourProfile} userFunctions={userFunctions} /> : null}
+        {activeTab === "subscribers" ? <Subscribers user={user} userFunctions={userFunctions} /> : null}
       </div>
     )
   }
