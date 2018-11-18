@@ -1,10 +1,11 @@
 const userDetailsInfo = {
   id: 321,
   name: "Arhur Morgan",
+  hasPermission: true, // allows to watch favorite catalog
   email: "arthur.morgan@mail.com",
   logo: "/images/user-321.jpg",
   registrationDate: new Date(2013, 7, 18),
-  watchedFilms: [
+  visitedFilms: [
     {
       id: 4,
       title: "Django Unchained",

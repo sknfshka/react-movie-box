@@ -9,33 +9,33 @@ class SubsInfo extends React.Component {
     super(props);
     this.state = {
       ...props,
-      showSubscriptions: true,
-      //isYourProfile: false,
+      activeTab: "subscriptions",
     };
   }
 
-  switchTab = () => {
-    if (this.state.isYourProfile) {
-      this.setState({
-        showSubscriptions: !this.state.showSubscriptions
-      });
-    }
+  switchTabTo = (tabName) => {
+    this.setState({
+      activeTab: tabName
+    });
   }
 
   render = () => {
-    const { user, showSubscriptions, isYourProfile } = this.state;
+    const { user, isYourProfile, activeTab } = this.state;
     return (
       <div className="profile-table pink">
         <div className="profile-nav">
-          <div className={"tablinks" + (showSubscriptions ? " active" : "")} onClick={() => this.switchTab()}>Subscriptions</div>
+          <div className={"tablinks" + (activeTab === "subscriptions" ? " active" : "")} onClick={() => this.switchTabTo("subscriptions")}>Subscriptions</div>
+
           {
             isYourProfile ?
-              <div className={"tablinks" + (!showSubscriptions ? " active" : "")} onClick={() => this.switchTab()}>Subscribers</div>
+              <div className={"tablinks" + (activeTab === "subscribers" ? " active" : "")} onClick={() => this.switchTabTo("subscribers")}>Subscribers</div>
               : null
           }
+
         </div>
 
-        {showSubscriptions ? <Subscriptions user={user} isYourProfile={isYourProfile} /> : <Subscribers user={user} />}
+        {activeTab === "subscriptions" ? <Subscriptions user={user} isYourProfile={isYourProfile} /> : null}
+        {activeTab === "subscribers" ? <Subscribers user={user} /> : null}
       </div>
     )
   }

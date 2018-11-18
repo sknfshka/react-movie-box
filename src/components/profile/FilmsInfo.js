@@ -9,25 +9,29 @@ class FilmsInfo extends React.Component {
     super(props);
     this.state = {
       ...props,
-      activeTab: "reviews",
-      //showSubscriptions: true,
-      //isYourProfile: false,
+      activeTab: this.props.isYourProfile || this.props.user.hasPermission ? "favorites" : "reviews",
     };
   }
 
+  switchTabTo = (tabName) => {
+    this.setState({
+      activeTab: tabName
+    });
+  }
+
   render = () => {
-    const { activeTab, user } = this.state;
+    const { activeTab, user, isYourProfile } = this.state;
     return (
       <div className="profile-table blue">
         <div className="profile-nav">
-          <div className={"tablinks" + (activeTab === "favorites" ? " active" : "")} >Favorites</div>
-          <div className={"tablinks" + (activeTab === "visited" ? " active" : "")} >Visited</div>
-          <div className={"tablinks" + (activeTab === "reviews" ? " active" : "")} >Reviews</div>
+          {isYourProfile || user.hasPermission ? <div className={"tablinks" + (activeTab === "favorites" ? " active" : "")} onClick={() => this.switchTabTo("favorites")} >Favorites</div> : null}
+          {isYourProfile ? <div className={"tablinks" + (activeTab === "visited" ? " active" : "")} onClick={() => this.switchTabTo("visited")} >Visited</div> : null}
+          <div className={"tablinks" + (activeTab === "reviews" ? " active" : "")} onClick={() => this.switchTabTo("reviews")} >Reviews</div>
         </div>
 
-        {activeTab === "favorites" ? <Films /> : null}
-        {activeTab === "visited" ? <Films /> : null}
-        {activeTab === "reviews" ? <Comments comments={user.myComments}/> : null}
+        {activeTab === "favorites" ? <Films films={user.favoriteFilms} /> : null}
+        {activeTab === "visited" ? <Films films={user.visitedFilms} /> : null}
+        {activeTab === "reviews" ? <Comments comments={user.myComments} /> : null}
 
       </div>
     )
