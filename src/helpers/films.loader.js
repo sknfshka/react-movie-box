@@ -1,6 +1,9 @@
+import {makeFilmFavorite, removeFilmFromFavorite, makeFilmVisited} from './user.loader';
+
 let filmsWithDetails, userInfoToFilms, films;
 
 export function loadFilmDetails(id) {
+    makeFilmVisited(films.find(film => film.id === id));
     return filmsWithDetails.find(film => film.id === id);
 }
 
@@ -9,7 +12,13 @@ export function switchFilmFavorite(userId, filmId) {
     if (i !== -1) {
         const j = userInfoToFilms[i].films.findIndex(film => film.filmId === filmId);
         if (j !== -1) {
-            userInfoToFilms[i].films[j].isFavorite = !userInfoToFilms[i].films[j].isFavorite;
+            let wasFavorite = userInfoToFilms[i].films[j].isFavorite;
+            userInfoToFilms[i].films[j].isFavorite = !wasFavorite;
+            if (wasFavorite) {
+                removeFilmFromFavorite(films.find(film => film.id === filmId))
+            } else {
+                makeFilmFavorite(films.find(film => film.id === filmId))
+            }
         }
     }
 }
@@ -101,17 +110,17 @@ userInfoToFilms = [
             {
                 filmId: 1,
                 rating: 3,
-                isFavorite: true,
+                isFavorite: false,
             },
             {
                 filmId: 2,
                 rating: 6,
-                isFavorite: true,
+                isFavorite: false,
             },
             {
                 filmId: 3,
                 rating: 5,
-                isFavorite: true,
+                isFavorite: false,
             },
             {
                 filmId: 4,
@@ -121,7 +130,7 @@ userInfoToFilms = [
             {
                 filmId: 5,
                 rating: 8,
-                isFavorite: true,
+                isFavorite: false,
             },
             {
                 filmId: 6,
