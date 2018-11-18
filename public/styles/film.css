@@ -176,6 +176,16 @@
       margin: 0;
       padding: 2px 5px;
       font-size: 35px; }
+    .film-raiting-info .raiting-info-item input {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 2px 5px;
+      font-size: 35px;
+      border: none;
+      color: #919191;
+      background: #333;
+      font-weight: 100;	}
   .film-raiting-info .raiting-info-item:first-child {
     margin-right: 20px; }
 

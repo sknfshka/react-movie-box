@@ -9,10 +9,10 @@ class Login extends React.Component {
     super(props);
 
     this.state = {
+      ...props,
       login: '',
       password: '',
       submitted: false,
-      failedLogIn: props.failedLogIn,
     };
 
     this.handleChange = this.handleChange.bind(this);

@@ -7,6 +7,12 @@ export function loadFilmDetails(id) {
     return filmsWithDetails.find(film => film.id === id);
 }
 
+export function updateRating(userId, filmId, newRating) {
+    const userIndex = userInfoToFilms.findIndex(userToFilm => userToFilm.userId === userId);
+    const filmIndex = userInfoToFilms[userIndex].films.findIndex(film => film.filmId === filmId);
+    userInfoToFilms[userIndex].films[filmIndex].rating = Number(newRating);
+}
+
 export function switchFilmFavorite(userId, filmId) {
     const i = userInfoToFilms.findIndex(userToFilm => userToFilm.userId === userId);
     if (i !== -1) {

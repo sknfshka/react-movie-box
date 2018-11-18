@@ -1,7 +1,14 @@
 import React from 'react';
 
 const FilmDescription = (props) => {
-  const { film } = props;
+  const { film, userId, onRatingChanged } = props;
+
+  const onRatingChange = (e) => {
+    e.preventDefault();
+    if (!Number.isNaN(Number(e.target.rating.value)) && Number(e.target.rating.value) <= 10.0) {
+      onRatingChanged(userId, film.id, e.target.rating.value);
+    }
+  }
 
   return (
     <div className="film-page">
@@ -14,7 +21,9 @@ const FilmDescription = (props) => {
           </div>
           <div className="raiting-info-item">
             <h3>Your Raiting</h3>
-            <p>{film.personal.rating}</p>
+            <form onSubmit={onRatingChange}>
+              <input name="rating" placeholder={film.personal.rating} />
+            </form>
           </div>
         </div>
         <div className="top-film-info">

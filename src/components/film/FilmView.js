@@ -6,7 +6,7 @@ import FilmViewTop from './FilmViewTop';
 import FilmDescription from './FilmDescription';
 import FilmComments from './FilmComments';
 
-const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite }) => {
+const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatingChanged }) => {
   if (!film || filmId !== film.id) {
     onDetailsLoad(filmId, userId);
     return null;
@@ -19,7 +19,11 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite }) => {
             film={film}
             userId={userId}
             doSwitchFavorite={doFilmFavorite} />
-          <FilmDescription film={film} />
+          <FilmDescription
+            film={film}
+            userId={userId}
+            onRatingChanged={onRatingChanged}
+          />
           <FilmComments comments={film.comments} />
         </div>
       </div>
@@ -49,6 +53,16 @@ export default connect(
         type: 'FAVORITE_FILM', payload: {
           filmId: filmdId,
           userId: userId,
+        }
+      })
+    },
+    onRatingChanged: (userId, filmdId, newRating) => {
+      console.log("changed");
+      dispatch({
+        type: 'UPDATE_FILM_RATING', payload: {
+          userId: userId,
+          filmId: filmdId,
+          newRating: newRating,
         }
       })
     },
