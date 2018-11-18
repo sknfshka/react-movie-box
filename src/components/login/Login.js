@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router'
 
-import './Login.css';
+//import './Login.css';
 
 class Login extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class Login extends React.Component {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
-  
+
   componentWillReceiveProps = (nextProps) => {
     this.setState({
       failedLogIn: nextProps.failedLogIn
@@ -44,8 +44,10 @@ class Login extends React.Component {
 
   render = () => {
     var { login, password, submitted, failedLogIn } = this.state;
+    const styles = (<style>{"body { height:100%; background-color: rgba(255, 255, 255, 0.8); } html { height:100%; background-color: #303030; } "}</style>);
     return (
       <div className="wrapper login-wrapper">
+        {styles}
         <form className="login-form" onSubmit={this.handleSubmit}>
           <div className="login-icon">
             <img src="/images/video-camera.svg" role="presentation" />
@@ -71,7 +73,7 @@ export default connect(
   (state) => ({ failedLogIn: state.login.failedLogIn }),
   dispatch => ({
     onLogIn: (login, password) => {
-      dispatch({ type: 'LOG_IN', payload: { login: login, password: password} });
+      dispatch({ type: 'LOG_IN', payload: { login: login, password: password } });
       hashHistory.push('/');
     },
   })

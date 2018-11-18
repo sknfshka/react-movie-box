@@ -11,6 +11,9 @@ const Catalog = ({ films }) => {
     <div>
       <Header />
       <div className="wrapper">
+        <div className="filters-button" id="filters-button">
+          <p>Filters<img className="filters-button-arrow" src="/images/down-arrow.svg" role="presentation" /></p>
+        </div>
         <FilmFilter />
         <FilmsList films={films} />
       </div>
