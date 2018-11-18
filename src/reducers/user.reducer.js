@@ -63,10 +63,12 @@ const userDetailsInfo = {
     {
       id: 1,
       name: "Some User",
+      approved: true,
     },
     {
       id: 2,
       name: "Other User",
+      approved: false,
     },
 
   ],
@@ -75,10 +77,14 @@ const userDetailsInfo = {
     {
       id: 1,
       name: "Some User",
+      approved: true,
+      // logo: "/images/user-321.jpg",
     },
     {
       id: 2,
       name: "Other User",
+      // logo: "/images/user-321.jpg",
+      approved: false,
     },
 
   ],

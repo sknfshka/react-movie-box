@@ -7,8 +7,7 @@ const calculateColor = (rating) => {
   else return "film__rating_bad";
 }
 
-const Film = (props) => {
-  const { film } = props;
+const Film = ({ film }) => {
   return (
     <div className="film">
       <div className="film__poster"><Link className="film__poster-link" to={`/film/${film.id}`}><img src={film.picture}

@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Comment = (props) => {
-  const { comment } = props;
-
+const Comment = ({ comment }) => {
   return (
     <div className="comment-item">
       <Link className="comment-author" to={`/profile/${comment.author.id}`}>{comment.author.name}</Link>

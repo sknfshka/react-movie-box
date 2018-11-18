@@ -1,29 +1,52 @@
 import React from 'react';
 
-let SubsInfo = ({ }) => {
+import Subscriptions from './Subscriptions';
+import Subscribers from './Subscribers';
 
-  return (
-    <div className="profile-table pink">
-      <div className="profile-nav">
-        <div className="tablinks active" data-name="subscriptions" data-color="pink" id="defaultOpenPink">Subscriptions</div>
-        <div className="tablinks" data-name="subscribers" data-color="pink">Subscribers </div>
+class SubsInfo extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      ...props,
+      showSubscriptions: true,
+      //isYourProfile: false,
+    };
+  }
+
+  switchTab = () => {
+    if (this.state.isYourProfile) {
+      this.setState({
+        showSubscriptions: !this.state.showSubscriptions
+      });
+    }
+  }
+
+  render = () => {
+    const { user, showSubscriptions, isYourProfile } = this.state;
+    return (
+      <div className="profile-table pink">
+        <div className="profile-nav">
+          <div className={"tablinks" + (showSubscriptions ? " active" : "")}
+            onClick={() => this.switchTab()}
+            data-name="subscriptions"
+            data-color="pink"
+            id="defaultOpenPink">Subscriptions</div>
+
+          {
+            isYourProfile ?
+              <div className={"tablinks" + (!showSubscriptions ? " active" : "")}
+                onClick={() => this.switchTab()}
+                data-name="subscribers"
+                data-color="pink">Subscribers</div>
+              : null
+          }
+        </div>
+
+        {showSubscriptions ? <Subscriptions user={user} isYourProfile={isYourProfile} /> : <Subscribers user={user} />}
       </div>
-      <div className="profile-content-tab friends-block" id="subscribers">
-        <a className="friends-item" href="/profile">
-          <img className="friend-photo" src="/images/user-placeholder.png" />
-          <h3>Jhon White</h3>
-          <p className="friends-button">Delete</p>
-        </a>
-      </div>
-      <div className="profile-content-tab friends-block active" id="subscriptions">
-        <a className="friends-item" href="/profile">
-          <img className="friend-photo" src="/images/user-placeholder.png" />
-          <h3>Jhon White </h3>
-          <p className="friends-button">Unfollow</p>
-        </a>
-      </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default SubsInfo;

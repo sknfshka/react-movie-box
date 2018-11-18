@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router'
 
 import './Login.css';
 
-class Login extends Component {
+class Login extends React.Component {
   constructor(props) {
     super(props);
 
@@ -42,12 +42,7 @@ class Login extends Component {
     if (login && password) { this.onLogIn(login, password); }
   }
 
-  handleEmailChange(event) {
-    console.log('email was changed', event.target.value);
-    this.setState({ email: event.target.value });
-  }
-
-  render() {
+  render = () => {
     var { login, password, submitted, failedLogIn } = this.state;
     return (
       <div className="wrapper login-wrapper">
