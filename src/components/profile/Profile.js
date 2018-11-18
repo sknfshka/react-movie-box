@@ -5,8 +5,8 @@ import Header from '../common/Header';
 import ProfileGeneralInfo from './ProfileGeneralInfo';
 import ProfileDetailedInfofrom from './ProfileDetailedInfo';
 
-const Profile = ({ userId, user, onDetailsLoad }) => {
-  if (!user || userId != user.id) {
+const Profile = ({ userId, user, isYourProfile, onDetailsLoad }) => {
+  if (!user || userId !== user.id) {
     onDetailsLoad(userId);
     return null;
   } else {
@@ -14,8 +14,8 @@ const Profile = ({ userId, user, onDetailsLoad }) => {
       <div>
         <Header />
         <div className="wrapper">
-          <ProfileGeneralInfo />
-          <ProfileDetailedInfofrom />
+          <ProfileGeneralInfo user={user} isYourProfile={isYourProfile} />
+          <ProfileDetailedInfofrom user={user} isYourProfile={isYourProfile} />
         </div>
       </div>
     );

@@ -1,8 +1,8 @@
 const userDetailsInfo = {
   id: 321,
-  name: "Jhon Black",
-  email: "jhonblack@mail.com",
-  //logo: "/images/user-placeholder.png",
+  name: "Arhur Morgan",
+  email: "arthur.morgan@mail.com",
+  logo: "/images/user-321.jpg",
   registrationDate: new Date(2013, 7, 18),
   watchedFilms: [
     {

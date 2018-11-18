@@ -3,7 +3,7 @@ import React from 'react';
 import FilmsInfo from './FilmsInfo';
 import SubsInfo from './SubsInfo';
 
-let ProfileDetailedInfo = ({ }) => {
+let ProfileDetailedInfo = ({ user }) => {
 
   return (
     <div className="right-container">
