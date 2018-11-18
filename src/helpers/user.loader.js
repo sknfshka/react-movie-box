@@ -76,12 +76,12 @@ userDetails = {
     {
       id: 1,
       name: "Jhon Black",
-      approved: false,
+      approved: true,
     },
     {
       id: 2,
       name: "James Smith",
-      approved: true,
+      approved: false,
     },
 
   ],
@@ -106,17 +106,17 @@ userDetails = {
 user1 = {
   id: 1,
   name: "Jhon Black",
-  hasPermission: false, // allows to watch favorite catalog
-  email: "arthur.morgan@mail.com",
+  hasPermission: true, // allows to watch favorite catalog
+  email: "Jhon.Black@mail.com",
   registrationDate: new Date(2013, 7, 18),
   visitedFilms: [],
   favoriteFilms: [
     {
-      id: 4,
-      title: "Django Unchained",
+      id: 5,
+      title: "Bohemian Rhapsody",
       date: new Date(2012, 17, 1),
-      rating: 8.4,
-      picture: "/images/film-4.jpg",
+      rating: 7.5,
+      picture: "/images/film-5.jpg",
       categories: ["Drama", "Western"],
     },
   ],
@@ -139,6 +139,11 @@ user1 = {
       name: "James Smith",
       approved: false,
     },
+    {
+      id: 321,
+      name: "Arthor Morgan",
+      approved: true,
+    },
   ],
 
 }
@@ -146,8 +151,8 @@ user1 = {
 user2 = {
   id: 2,
   name: "James Smith",
-  hasPermission: true, // allows to watch favorite catalog
-  email: "arthur.morgan@mail.com",
+  hasPermission: false, // allows to watch favorite catalog
+  email: "James.Smith@mail.com",
   registrationDate: new Date(2013, 7, 18),
   visitedFilms: [],
   favoriteFilms: [
@@ -163,8 +168,8 @@ user2 = {
 
   subscriptions: [
     {
-      id: 321,
-      name: "Arthor Morgan",
+      id: 1,
+      name: "Jhon Black",
       approved: true,
     },
   ],
