@@ -7,10 +7,11 @@ import thunk from 'redux-thunk';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import Catalog from './components/catalog/Catalog';
 import reducer from './reducers';
+import Catalog from './components/catalog/Catalog';
 import Film from './components/film/FilmView';
 import Login from './components/login/Login';
+import Profile from './components/profile/Profile';
 
 const store = createStore(reducer, composeWithDevTools(applyMiddleware(thunk)));
 const history = syncHistoryWithStore(hashHistory, store);
@@ -37,8 +38,10 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path="/login" component={Login} onEnter={authAlreadyPerformed} />
-      <Route path="/" component={Catalog} onEnter={requireAuth} />
+      <Route exact path="/" component={Catalog} onEnter={requireAuth} />
       <Route path="/film/:id" component={Film} onEnter={requireAuth} />
+      <Route exact path="/profile" component={Profile} onEnter={requireAuth} />
+      <Route path="/profile/:id" component={Profile} onEnter={requireAuth} />
     </Router>
   </Provider>,
   document.getElementById('root')

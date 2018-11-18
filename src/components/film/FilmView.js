@@ -7,7 +7,7 @@ import FilmDescription from './FilmDescription';
 import FilmComments from './FilmComments';
 
 const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite }) => {
-  if (!film || filmId != film.id) {
+  if (!film || filmId !== film.id) {
     onDetailsLoad(filmId, userId);
     return null;
   } else {

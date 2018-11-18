@@ -6,7 +6,7 @@ const Comment = (props) => {
 
   return (
     <div className="comment-item">
-      <a className="comment-author" href="/profile">{comment.author}</a>
+      <Link className="comment-author" to={`/profile/${comment.author.id}`}>{comment.author.name}</Link>
       <p className="comment-data">{comment.date.toLocaleString('eng', {
         year: 'numeric',
         month: 'long',

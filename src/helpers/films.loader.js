@@ -162,7 +162,10 @@ filmsWithDetails = [
         description: "A mysterious young woman named Hester Shaw joins forces with Anna Fang, a dangerous outlaw with a bounty on her head, and Tom Natsworthy, an outcast from London, to lead a rebellion against a giant predator city on wheels.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -187,7 +190,10 @@ filmsWithDetails = [
         description: "Five years after the events of Mamma Mia! (2008), Sophie prepares for the grand reopening of the Hotel Bella Donna as she learns more about her mother's past.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -212,7 +218,10 @@ filmsWithDetails = [
         description: "1470. Medici's family power has been consolidated over time. Lorenzo is called to take his father's place after an attempt on his life which reveals years of poor bank management from them. As new head of Medici's family he has to take care of his brother Giuliano and his sister Bianca. He marries Clarice Orsini, a noble woman from Rome, and his friendship with Botticelli gives life to Renaissance. His contrast with Pope Sixtus brings Florence to the most bloody moment of its History, the Pazzi conspiracy.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -237,7 +246,10 @@ filmsWithDetails = [
         description: "With the help of a German bounty hunter, a freed slave sets out to rescue his wife from a brutal Mississippi plantation owner.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -264,7 +276,10 @@ filmsWithDetails = [
         description: "A chronicle of the years leading up to Queen's legendary appearance at the Музыкальный фестиваль Live Aid (1985) concert.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -290,7 +305,10 @@ filmsWithDetails = [
         description: "In mid-20s New York, Newt Scamander, the British young activist wizard, arrives in town, holding a mysterious leather suitcase which shelters a wide array of diverse and magical creatures that exist among us. Amid an already fragile equilibrium of secrecy, and the increasing disasters ascribed to the dark wizard, Gellert Grindelwald, Newt's precious suitcase will be lost--and to make matters worse--several creatures will manage to escape. Before long, this situation will catch Senior Auror Percival Graves' attention who will target Newt, in the background of an invisible, devastating, and utterly unpredictable menace that still wreaks havoc on 5th Avenue. In the end, is there a hidden agenda behind Graves' intentions; moreover, what will happen to the remaining fantastic beasts still loose in the streets?",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -315,7 +333,10 @@ filmsWithDetails = [
         description: "Two Brooklyn plumbers, Mario and Luigi, must travel to another dimension to rescue a princess from the evil dictator King Koopa and stop him from taking over the world.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",
@@ -340,7 +361,10 @@ filmsWithDetails = [
         description: "The young warrior Son Goku sets out on a quest, racing against time and the vengeful King Piccolo, to collect a set of seven magical orbs that will grant their wielder unlimited power.",
         comments: [
             {
-                author: "Jhon Black",
+                author: {
+                    name: "Jhon Black",
+                    id: 1,
+                },
                 date: new Date(2013, 10, 2),
                 rating: 7.5,
                 title: "Best Movie",

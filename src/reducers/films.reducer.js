@@ -2,12 +2,14 @@ import { loadFilms, loadFilmDetails, getUserInfoToFilm, switchFilmFavorite } fro
 
 const initialState = {
   allFilms: loadFilms(),
+  filmToDisplay: {},
 }
 
 export default function films(state = initialState, action) {
   if (action.type === 'GET_FILM_DETAILS') {
     return {
-      ...state, filmToDisplay: {
+      ...state,
+      filmToDisplay: {
         ...loadFilmDetails(action.payload.filmId),
         personal: getUserInfoToFilm(action.payload.filmId, action.payload.userId),
       }
@@ -17,7 +19,8 @@ export default function films(state = initialState, action) {
   } else if (action.type === 'FAVORITE_FILM') {
     switchFilmFavorite(action.payload.userId, action.payload.filmId);
     return {
-      ...state, filmToDisplay: {
+      ...state,
+      filmToDisplay: {
         ...loadFilmDetails(action.payload.filmId),
         personal: getUserInfoToFilm(action.payload.filmId, action.payload.userId),
       }
