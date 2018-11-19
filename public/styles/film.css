@@ -114,14 +114,13 @@
   flex-flow: row wrap;
   justify-content: flex-start;
   position: absolute;
-  left: 20px;
+  left: 0;
   bottom: 40px;
   color: #ddd;
   padding: 10px; 
   background: rgba(0,0,0,0.7);
 }
-  .personal-buttons .button:first-child {
-    margin-right: 15px; }
+  
   .personal-buttons .button {
     border: 1px solid #ddd;
     border-radius: 4px;

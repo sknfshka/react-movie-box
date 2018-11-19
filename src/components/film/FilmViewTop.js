@@ -10,7 +10,6 @@ let FilmViewTop = ({ film, doSwitchFavorite, userId }) => {
       <div className="film-header" style={headerStyle}>
         <h1 className="film-title">{film.title}</h1>
         <div className="personal-buttons">
-          <div className="button watch-button">Watch<img src="/images/play-button-white.svg" role="presentation" /></div>
           <div className={"button favorite-button" + (film.personal.isFavorite ? " active" : "")}
             onClick={() => doSwitchFavorite(film.id, userId)}>Favorite<img src="/images/star-white.svg" role="presentation" />
           </div>
