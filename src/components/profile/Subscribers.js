@@ -7,7 +7,7 @@ const Subscribers = ({ user, userFunctions }) => {
   let toApprove = [];
   const onApproveRequest = (subId) => {
     userFunctions.onApproveUser(user.id, subId);
-  }
+  };
 
   user.subscribers
     .filter(s => !s.approved)
@@ -24,12 +24,12 @@ const Subscribers = ({ user, userFunctions }) => {
           key={id}
         />
       );
-    })
+    });
 
   let toRemove = [];
   const onRemove = (subId) => {
     userFunctions.onDeleteUser(user.id, subId);
-  }
+  };
   user.subscribers
     .filter(s => s.approved)
     .forEach((s, id) => {
@@ -53,6 +53,6 @@ const Subscribers = ({ user, userFunctions }) => {
       {toRemove}
     </div>
   )
-}
+};
 
 export default Subscribers;

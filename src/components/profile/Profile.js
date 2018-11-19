@@ -1,21 +1,37 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 import Header from '../common/Header';
 import ProfileGeneralInfo from './ProfileGeneralInfo';
-import ProfileDetailedInfofrom from './ProfileDetailedInfo';
+import ProfileDetailedInfo from './ProfileDetailedInfo';
 
-const Profile = ({ userId, user, isYourProfile, onDetailsLoad, onApproveUser, onDeleteUser, onUnfollow, onCancelRequest }) => {
+const Profile = ({userId, myId, user, isYourProfile, onDetailsLoad, onApproveUser, onFollow, onDeleteUser, onUnfollow, onCancelRequest}) => {
   if (!user || userId !== user.id) {
     onDetailsLoad(userId);
     return null;
   } else {
+    const bindFollow = () => onFollow(myId, userId);
+    const bindUnfollow = () => onUnfollow(myId, userId);
+    const bindCancelRequest = () => {
+      console.log(myId, userId);
+      onCancelRequest(myId, userId);
+    };
     return (
       <div>
-        <Header />
+        <Header/>
         <div className="wrapper">
-          <ProfileGeneralInfo user={user} isYourProfile={isYourProfile} />
-          <ProfileDetailedInfofrom
+          <ProfileGeneralInfo
+            user={user}
+            isYourProfile={isYourProfile}
+            userFunctions={
+              {
+                onFollow: bindFollow.bind(this),
+                onUnfollow: bindUnfollow.bind(this),
+                onCancelRequest: bindCancelRequest.bind(this),
+              }
+            }
+          />
+          <ProfileDetailedInfo
             user={user}
             isYourProfile={isYourProfile}
             userFunctions={
@@ -31,11 +47,12 @@ const Profile = ({ userId, user, isYourProfile, onDetailsLoad, onApproveUser, on
       </div>
     );
   }
-}
+};
 
 export default connect(
   (state, ownProps) => {
     return {
+      myId: state.login.uid,
       user: state.user,
       userId: ownProps.params.id ? Number(ownProps.params.id) : state.login.uid,
       isYourProfile: !(ownProps.params.id && Number(ownProps.params.id) !== state.login.uid),
@@ -76,6 +93,14 @@ export default connect(
     onCancelRequest: (myId, userId) => {
       dispatch({
         type: 'CANCEL_REQUEST_TO', payload: {
+          myId: myId,
+          userId: userId,
+        }
+      })
+    },
+    onFollow: (myId, userId) => {
+      dispatch({
+        type: 'FOLLOW_USER', payload: {
           myId: myId,
           userId: userId,
         }

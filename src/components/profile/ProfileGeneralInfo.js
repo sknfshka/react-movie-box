@@ -1,6 +1,34 @@
 import React from 'react';
 
-const ProfileGeneralInfo = ({ user, isYourProfile }) => {
+const ProfileGeneralInfo = ({ user, isYourProfile, userFunctions }) => {
+
+  /*
+
+  userFunctions={
+              {
+                onApproveUser: onApproveUser,
+                onDeleteUser: onDeleteUser,
+                onUnfollow: onUnfollow,
+                onFollow:
+                onCancelRequest: onCancelRequest,
+              }
+            }
+   */
+
+
+  console.log(user);
+
+  let buttonTitle = "Unfollow";
+  let buttonOnClick = userFunctions.onUnfollow;
+
+  if (user.hasPermission === undefined) {
+    buttonTitle = "Follow";
+    buttonOnClick = userFunctions.onFollow;
+  } else if (user.hasPermission === false) {
+    buttonTitle = "Cancel request";
+    buttonOnClick = userFunctions.onCancelRequest;
+  }
+
   return (
     <div className="left-siderbar-dark">
       <div className="profile-info">
@@ -18,7 +46,7 @@ const ProfileGeneralInfo = ({ user, isYourProfile }) => {
         {
           isYourProfile ?
           null:
-          <button className='button'>Follow</button>
+          <button className='button' onClick={buttonOnClick}>{buttonTitle}</button>
         }
         
       </div>

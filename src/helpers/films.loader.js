@@ -1,4 +1,4 @@
-import {makeFilmFavorite, removeFilmFromFavorite, makeFilmVisited, addCommentToUser } from './user.loader';
+import { makeFilmFavorite, removeFilmFromFavorite, makeFilmVisited, addCommentToUser } from './user.loader';
 
 let filmsWithDetails, userInfoToFilms, films;
 
@@ -133,7 +133,7 @@ films = [
     picture: "/images/film-8.jpg",
     categories: ["Action", "Adventure", "Fantasy"],
   }
-]
+];
 
 userInfoToFilms = [
   {

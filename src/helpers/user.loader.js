@@ -61,11 +61,49 @@ export function deleteUser(myId, userId) {
 }
 
 export function unfollowFrom(myId, userId) {
+  if (userId === 1) {
+    console.log("1");
+    delete user1.hasPermission;
+  } else if (userId === 2) {
+    console.log("2");
+    delete user2.hasPermission;
+  }
   userDetails.subscriptions.splice(userDetails.subscriptions.findIndex(user => user.id === userId), 1);
 }
 
+export function followUser(myId, userId) {
+  let subInfo;
+
+  if (userId === 1) {
+    subInfo = {
+      id: 1,
+      name: "Jhon Black",
+      approved: false,
+    };
+    user1.hasPermission = false;
+  } else if (userId === 2) {
+    subInfo = {
+      id: 2,
+      name: "James Smith",
+      approved: false,
+    };
+    user2.hasPermission = false;
+  }
+
+  userDetails.subscriptions = [
+    ...userDetails.subscriptions,
+    subInfo
+  ]
+}
+
 export function cancelRequestTo(myId, userId) {
-  userDetails.subscriptions.splice(userDetails.subscriptions.findIndex(user => user.id === userId), 1);
+  if (userId === 1) {
+    delete user1.hasPermission;
+  } else if (userId === 2) {
+    delete user2.hasPermission;
+  }
+
+  userDetails.subscriptions.splice(userDetails.subscriptions.findIndex(sub => sub.id === userId), 1);
 }
 
 userDetails = {
@@ -100,12 +138,12 @@ userDetails = {
   ],
 
   subscriptions: [
-    {
+    { // followed
       id: 1,
       name: "Jhon Black",
       approved: true,
     },
-    {
+    { // on request
       id: 2,
       name: "James Smith",
       approved: false,
@@ -173,7 +211,11 @@ user1 = {
     },
   ],
 
-}
+  subscribers: [
+
+  ],
+
+};
 
 user2 = {
   id: 2,
@@ -201,4 +243,8 @@ user2 = {
     },
   ],
 
-}
+  subscribers: [
+
+  ],
+
+};

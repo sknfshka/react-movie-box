@@ -1,4 +1,11 @@
-import { loadUserDetails, approveUser, deleteUser, unfollowFrom, cancelRequestTo } from '../helpers/user.loader';
+import {
+  loadUserDetails,
+  approveUser,
+  deleteUser,
+  unfollowFrom,
+  cancelRequestTo,
+  followUser,
+} from '../helpers/user.loader';
 
 export default function user(state = {}, action) {
   if (action.type === 'GET_USER_DETAILS') {
@@ -20,6 +27,11 @@ export default function user(state = {}, action) {
     }
   } else if (action.type === 'CANCEL_REQUEST_TO') {
     cancelRequestTo(action.payload.myId, action.payload.userId);
+    return {
+      ...loadUserDetails(action.payload.myId)
+    }
+  } else if (action.type === 'FOLLOW_USER') {
+    followUser(action.payload.myId, action.payload.userId);
     return {
       ...loadUserDetails(action.payload.myId)
     }
