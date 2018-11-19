@@ -11,7 +11,7 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatin
     onDetailsLoad(filmId, userId);
     return null;
   } else {
-    const addComment = (title, text) => onCommentAdded(userId, film.id, film.rating, title, text);
+    const addComment = (title, text) => onCommentAdded(userId, film.id, film.personal.rating, title, text);
     return (
       <div>
         <Header />
