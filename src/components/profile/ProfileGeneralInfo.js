@@ -14,6 +14,13 @@ const ProfileGeneralInfo = ({ user, isYourProfile }) => {
             day: 'numeric'
           })}</span>
         </p>
+
+        {
+          isYourProfile ?
+          null:
+          <button className='button'>Follow</button>
+        }
+        
       </div>
     </div>
   )

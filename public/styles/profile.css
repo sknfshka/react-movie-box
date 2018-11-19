@@ -134,6 +134,18 @@ button:focus {
   border-radius: 4px;
   text-transform: uppercase; }
 
+  .profile-info .button {
+    border: 2px solid #b726ed;
+    color: #b726ed;
+    padding: 5px 15px;
+    border-radius: 4px;
+    right: 10px;
+    font-size: 14px;
+    position: absolute;
+    background: #1b1b1b;
+    cursor: pointer
+}
+
 @media screen and (min-width: 721px) {
   .right-container {
     padding-left: 290px; } }
@@ -150,7 +162,14 @@ button:focus {
     width: 250px;
     height: 100%;
     background: #161616;
-    box-shadow: 8px 5px 61px -4px rgba(0, 0, 0, 0.75); } }
+    box-shadow: 8px 5px 61px -4px rgba(0, 0, 0, 0.75); 
+  } 
+  .profile-info .button {
+    position: relative;
+    right: auto;
+  }
+}
+
 
 @media screen and (max-width: 1000px) {
   .left-siderbar-dark {
@@ -180,4 +199,25 @@ button:focus {
   .right-container {
     padding: 30px 10px; } }
 
+  @media screen and (max-width: 500px) {
+      .profile-info p, .profile-info a, .profile-info h2{
+        width: 150px
+      }
+    }
+  @media screen and (max-width: 374px) {
+    .profile-info{
+      padding: 0;
+    }
+      .profile-photo {
+        left: auto;
+        margin-bottom: 10px;
+        position: relative;
+      }
+      .profile-info p, .profile-info a, .profile-info h2{
+        width: 100%
+      }
+      .profile-info button{
+        top: 0
+      }
+    }
 /*# sourceMappingURL=profile.css.map */
