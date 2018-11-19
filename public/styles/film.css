@@ -279,6 +279,55 @@
     .comments .comment-item .comment-title {
       font-weight: 600; }
 
+.comment-form{
+  margin: auto;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+  font-weight: 300;
+  display: flex;
+  flex-flow: column;
+  color: black;
+} 
+.comment-form__input{
+  border: none;
+    width: 100%;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    padding: .3em;
+    border: none;
+    border-bottom: 1px solid #545454;
+    color: black;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+.comment-form textarea{
+  min-height: 250px;
+  border: 1px solid #545454;
+}
+.comment-form__label {
+  margin: 5px 0;
+}
+.comment-form * {
+  width: 100%;
+  display: block;
+}
+.comment-form div {
+  margin-bottom: 20px;
+}
+.comment-form__submit {
+  background: #b726ed;
+    border: none;
+    color: white;
+    display: inline-block;
+    padding: 7px;
+    width: 100px;
+    margin-top: 5px;
+    font-weight: 400;
+    font-size: 16px;
+    border-radius: 4px;
+}
 @media screen and (min-width: 721px) {
   .films {
     padding-left: 290px; }

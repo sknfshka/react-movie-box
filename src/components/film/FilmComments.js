@@ -1,5 +1,6 @@
 import React from 'react';
 import Comment from '../common/parts/Comment';
+import CommentForm from '../common/parts/CommentForm';
 
 const FilmComments = (props) => {
   const comments = [];
@@ -16,6 +17,7 @@ const FilmComments = (props) => {
     <div className="comments">
       <h2>Reviews</h2>
       {comments}
+      <CommentForm />
     </div>
   );
 }
