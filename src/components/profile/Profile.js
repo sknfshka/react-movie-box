@@ -10,12 +10,6 @@ const Profile = ({userId, myId, user, isYourProfile, onDetailsLoad, onApproveUse
     onDetailsLoad(userId);
     return null;
   } else {
-    const bindFollow = () => onFollow(myId, userId);
-    const bindUnfollow = () => onUnfollow(myId, userId);
-    const bindCancelRequest = () => {
-      console.log(myId, userId);
-      onCancelRequest(myId, userId);
-    };
     return (
       <div>
         <Header/>
@@ -25,9 +19,9 @@ const Profile = ({userId, myId, user, isYourProfile, onDetailsLoad, onApproveUse
             isYourProfile={isYourProfile}
             userFunctions={
               {
-                onFollow: bindFollow.bind(this),
-                onUnfollow: bindUnfollow.bind(this),
-                onCancelRequest: bindCancelRequest.bind(this),
+                onFollow: () => onFollow(myId, userId),
+                onUnfollow: () => onUnfollow(myId, userId),
+                onCancelRequest: () => onCancelRequest(myId, userId),
               }
             }
           />
