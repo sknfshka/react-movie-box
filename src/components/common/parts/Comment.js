@@ -12,7 +12,7 @@ const Comment = ({ comment }) => {
         day: 'numeric'
       })}</p>
       <p className="comment-rating">{comment.rating}<span>/10</span></p>
-      <p className="commnet-title">{comment.title}</p>
+      <p className="comment-title">{comment.title}</p>
       <p className="comment-text">{comment.text}</p>
     </div>
   );
