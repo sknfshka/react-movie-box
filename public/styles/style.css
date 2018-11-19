@@ -45,7 +45,13 @@ a {
 .navbar-login-icon {
   width: 40px;
   height: 40px; }
-
+.navbar-user-icon {
+  width: 24px;
+  margin-left: 20px;
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
 .navbar-login-title {
   color: white;
   font-size: 20px;
