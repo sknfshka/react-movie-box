@@ -180,6 +180,7 @@ button:focus {
     justify-content: space-between;
     align-items: center; }
     .filter-form .form-item.year-label .form-item__input {
+      text-align: center;
       width: 25%; }
     .filter-form .form-item.year-label .form-item__label {
       width: auto; }

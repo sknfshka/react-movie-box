@@ -1,7 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
-const FilmFilter = ({ onFilterTitle, onFilterCategory, onSortBy, onFilterRating, ratingFrom, onFilterYearFrom, onFilterYearUntil }) => {
+const FilmFilter = ({onFilterTitle, onFilterCategory, onSortBy, onFilterRating, filterFilms, onFilterYearFrom, onFilterYearUntil}) => {
 
   let filterTitleInput,
     categorySelect,
@@ -22,29 +22,36 @@ const FilmFilter = ({ onFilterTitle, onFilterCategory, onSortBy, onFilterRating,
       <div className="form-item year-label">
         <label className="form-item__label" htmlFor="year-from-filter">Year from</label>
         <input className="form-item__input" id="year-from-filter" type="text" name="year-from"
-          ref={(input) => { yearFromInput = input }} onKeyUp={filterYearFrom} />
+               ref={(input) => {yearFromInput = input}} onKeyUp={filterYearFrom}
+               defaultValue={filterFilms.yearFrom === 0 ? '' : filterFilms.yearFrom}/>
         <label className="form-item__label" htmlFor="year-until-filter">to</label>
         <input className="form-item__input" id="year-until-filter" type="text" name="year-until"
-          ref={(input) => { yearUntilInput = input }} onKeyUp={filterYearUntil} />
+               ref={(input) => {yearUntilInput = input}} onKeyUp={filterYearUntil}
+               defaultValue={filterFilms.yearUntil !== Infinity ? filterFilms.yearUntil : ''}/>
       </div>
       <div className="form-item">
         <label className="form-item__label" htmlFor="title-filter">Title</label>
         <input className="form-item__input" id="title-filter" type="text" name="title"
-          ref={(input) => { filterTitleInput = input }} onKeyUp={filterTitle} />
+               ref={(input) => {filterTitleInput = input}} onKeyUp={filterTitle}
+               defaultValue={filterFilms.title}/>
       </div>
       <div className="form-item">
         <label className="form-item__label" htmlFor="rating-filter">Rating</label>
         <div className="form-item__range">
-          <div className="form-item__range__rating-value" id="rating-value">{ratingFrom}</div>
-          <input className="form-item__range__range-slider" id="rating-filter" type="range" name="rating" min="0" max="10"
-            defaultValue="0" ref={(slider) => { ratingFromSlider = slider }} onInput={filterRating} />
+          <div className="form-item__range__rating-value" id="rating-value">{filterFilms.ratingFrom}</div>
+          <input className="form-item__range__range-slider" id="rating-filter" type="range" name="rating" min="0"
+                 max="10"
+                 defaultValue={filterFilms.ratingFrom} ref={(slider) => {
+            ratingFromSlider = slider
+          }} onInput={filterRating}/>
           <div className="form-item__range__rating-value">10</div>
         </div>
       </div>
       <div className="form-item">
         <label className="form-item__label" htmlFor="category-filter">Category</label>
         <select className="form-item__input"
-          id="category-filter" name="category" ref={(select) => { categorySelect = select }} onChange={filterCategory}>
+                id="category-filter" name="category" ref={(select) => {categorySelect = select}} onChange={filterCategory}
+                defaultValue={filterFilms.category}>
           <option value="all">All</option>
           <option value="comedy">Comedy</option>
           <option value="action">Action</option>
@@ -61,7 +68,8 @@ const FilmFilter = ({ onFilterTitle, onFilterCategory, onSortBy, onFilterRating,
       <div className="form-item">
         <label className="form-item__label" htmlFor="sort-by">Sort By</label>
         <select className="form-item__input"
-          id="sort-by" name="sort" ref={(select) => { sortBySelect = select }} onChange={sortBy}>
+                id="sort-by" name="sort" ref={(select) => {sortBySelect = select}} onChange={sortBy}
+                defaultValue={filterFilms.sortBy}>
           <option value="title">Title</option>
           <option value="latest">New</option>
           <option value="best">Best</option>
@@ -72,14 +80,18 @@ const FilmFilter = ({ onFilterTitle, onFilterCategory, onSortBy, onFilterRating,
 
 export default connect(
   (state) => ({
-    ratingFrom: state.filterFilms.ratingFrom,
+    filterFilms: state.filterFilms,
   }),
   dispatch => ({
-    onFilterTitle: (title) => { dispatch({ type: 'FILTER_BY_TITLE', payload: title }) },
-    onFilterCategory: (category) => { dispatch({ type: 'FILTER_BY_CATEGORY', payload: category }) },
-    onSortBy: (param) => dispatch({ type: 'SORT_BY', payload: param }),
-    onFilterRating: (ratingFrom) => dispatch({ type: 'FILTER_BY_RATING', payload: ratingFrom }),
-    onFilterYearFrom: (yearFrom) => dispatch({ type: 'FILTER_BY_YEAR_FROM', payload: yearFrom }),
-    onFilterYearUntil: (yearUntil) => dispatch({ type: 'FILTER_BY_YEAR_UNTIL', payload: yearUntil }),
+    onFilterTitle: (title) => {
+      dispatch({type: 'FILTER_BY_TITLE', payload: title})
+    },
+    onFilterCategory: (category) => {
+      dispatch({type: 'FILTER_BY_CATEGORY', payload: category})
+    },
+    onSortBy: (param) => dispatch({type: 'SORT_BY', payload: param}),
+    onFilterRating: (ratingFrom) => dispatch({type: 'FILTER_BY_RATING', payload: ratingFrom}),
+    onFilterYearFrom: (yearFrom) => dispatch({type: 'FILTER_BY_YEAR_FROM', payload: yearFrom}),
+    onFilterYearUntil: (yearUntil) => dispatch({type: 'FILTER_BY_YEAR_UNTIL', payload: yearUntil}),
   })
 )(FilmFilter);
