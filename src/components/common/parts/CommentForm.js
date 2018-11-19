@@ -1,41 +1,45 @@
 import React from 'react';
-import { Link } from 'react-router';
 
-const CommentForm = () => {
+const CommentForm = ({onCommentAdded}) => {
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    onCommentAdded(e.target.title.value, e.target.text.value);
+    e.target.title.value = '';
+    e.target.text.value = '';
+  };
+
   return (
     <div className="comment-item">
-      <form className="comment-form">
-          <h2 className="comment-form-title">Add new review</h2>
-          <div> 
-      
-            <label 
-            className="comment-form__label" 
-            htmlFor="new-comment-title">Title 
-            </label>
+      <form className="comment-form" onSubmit={onFormSubmit}>
+        <h2 className="comment-form-title">Add new review</h2>
+        <div>
 
-            <input 
-            className="comment-form__input" 
-            id="new-comment-title" 
-            type="text" 
-            name="new-comment-title" 
-            />
+          <label
+            className="comment-form__label"
+            htmlFor="new-comment-title">Title
+          </label>
 
-          </div>
-          <div>
-            <label className="comment-form__label" htmlFor="comment-description">Description</label>
-            <textarea
-            className="comment-form__textarea" 
-            id="comment-description" 
-            type="text" 
-            name="password" 
-            >
-            </textarea>
-          </div>
-          <input className="comment-form__input comment-form__submit form-item__input_button" id="submit" type="submit"  value="SEND"></input>
-          
-        </form>
+          <input
+            className="comment-form__input"
+            id="newCommentTitle"
+            type="text"
+            name="title"/>
+
+        </div>
+        <div>
+          <label className="comment-form__label" htmlFor="comment-description">Description</label>
+          <textarea
+            className="comment-form__textarea"
+            id="comment-description"
+            name="text" />
+        </div>
+        <input className="comment-form__input comment-form__submit form-item__input_button" id="submit" type="submit"
+               value="SEND"/>
+
+      </form>
     </div>
-    
+
   );
 }
 

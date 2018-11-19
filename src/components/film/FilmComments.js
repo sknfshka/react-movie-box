@@ -17,7 +17,7 @@ const FilmComments = (props) => {
     <div className="comments">
       <h2>Reviews</h2>
       {comments}
-      <CommentForm />
+      <CommentForm onCommentAdded={props.onCommentAdded}/>
     </div>
   );
 }

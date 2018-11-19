@@ -7,10 +7,35 @@ export function logIn(login, password) {
 }
 
 export function loadUserDetails(userId) {
-  if (userId === 321) { return userDetails; }
-  if (userId === 1) { return user1; }
-  if (userId === 2) { return user2; }
+  if (userId === 321) {
+    return userDetails;
+  }
+  if (userId === 1) {
+    return user1;
+  }
+  if (userId === 2) {
+    return user2;
+  }
   return {};
+}
+
+export function addCommentToUser(userId, filmId, rating, title, text, time, filmTile) {
+  console.log(userDetails.myComments);
+
+  userDetails.myComments = [
+    ...userDetails.myComments,
+    {
+      film: {
+        id: filmId,
+        title: filmTile,
+      },
+      date: time,
+      rating: rating,
+      title: title,
+      text: text,
+    }
+  ];
+
 }
 
 export function makeFilmFavorite(film) {
@@ -22,7 +47,9 @@ export function removeFilmFromFavorite(film) {
 }
 
 export function makeFilmVisited(film) {
-  if (!userDetails.visitedFilms.includes(film)) { userDetails.visitedFilms.push(film); }
+  if (!userDetails.visitedFilms.includes(film)) {
+    userDetails.visitedFilms.push(film);
+  }
 }
 
 export function approveUser(myId, userId) {

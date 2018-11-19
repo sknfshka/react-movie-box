@@ -1,9 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { hashHistory } from 'react-router'
-
-//import './Login.css';
-
 class Login extends React.Component {
   constructor(props) {
     super(props);

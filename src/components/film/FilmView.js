@@ -6,11 +6,12 @@ import FilmViewTop from './FilmViewTop';
 import FilmDescription from './FilmDescription';
 import FilmComments from './FilmComments';
 
-const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatingChanged }) => {
+const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatingChanged, onCommentAdded }) => {
   if (!film || filmId !== film.id) {
     onDetailsLoad(filmId, userId);
     return null;
   } else {
+    const addComment = (title, text) => onCommentAdded(userId, film.id, film.rating, title, text);
     return (
       <div>
         <Header />
@@ -25,7 +26,8 @@ const FilmView = ({ filmId, userId, film, onDetailsLoad, doFilmFavorite, onRatin
             onRatingChanged={onRatingChanged}
           />
           <FilmComments 
-            comments={film.comments} />
+            comments={film.comments}
+            onCommentAdded={addComment.bind(this)} />
         </div>
       </div>
     );
@@ -63,6 +65,17 @@ export default connect(
           userId: userId,
           filmId: filmdId,
           newRating: newRating,
+        }
+      })
+    },
+    onCommentAdded: (userId, filmId, rating, title, text) => {
+      dispatch({
+        type: 'ADD_COMMENT', payload: {
+          userId: userId,
+          filmId: filmId,
+          rating: rating,
+          title: title,
+          text: text,
         }
       })
     },

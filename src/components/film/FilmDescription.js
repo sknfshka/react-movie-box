@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FilmDescription = (props) => {
-  const { film, userId, onRatingChanged } = props;
+  const {film, userId, onRatingChanged} = props;
 
   const onRatingChange = (e) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const FilmDescription = (props) => {
 
   return (
     <div className="film-page">
-      <img className="poster" src={film.picture} alt={film.title} />
+      <img className="poster" src={film.picture} alt={film.title}/>
       <div className="film-info">
         <div className="film-raiting-info">
           <div className="raiting-info-item">
@@ -22,7 +22,7 @@ const FilmDescription = (props) => {
           <div className="raiting-info-item">
             <h3>Your Raiting</h3>
             <form onSubmit={onRatingChange}>
-              <input name="rating" placeholder={film.personal.rating} />
+              <input name="rating" placeholder={film.personal.rating}/>
             </form>
           </div>
         </div>
