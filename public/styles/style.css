@@ -70,6 +70,7 @@ body {
   background-color: #f7f7f7; }
 
 .filters-button {
+  cursor: pointer;
   display: none; }
 
 @media screen and (max-width: 720px) {

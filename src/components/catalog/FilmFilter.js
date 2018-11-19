@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-const FilmFilter = ({onFilterTitle, onFilterCategory, onSortBy, onFilterRating, filterFilms, onFilterYearFrom, onFilterYearUntil}) => {
+const FilmFilter = ({ showMobileForm, onFilterTitle, onFilterCategory, onSortBy, onFilterRating, filterFilms, onFilterYearFrom, onFilterYearUntil }) => {
 
   let filterTitleInput,
     categorySelect,
@@ -18,7 +18,7 @@ const FilmFilter = ({onFilterTitle, onFilterCategory, onSortBy, onFilterRating, 
   const filterYearUntil = () => onFilterYearUntil(yearUntilInput.value);
 
   return (
-    <div className="filter-form" id="filter-form">
+    <div className={"filter-form" + (showMobileForm ? " show" : "")} id="filter-form">
       <div className="form-item year-label">
         <label className="form-item__label" htmlFor="year-from-filter">Year from</label>
         <input className="form-item__input" id="year-from-filter" type="text" name="year-from"
@@ -79,8 +79,9 @@ const FilmFilter = ({onFilterTitle, onFilterCategory, onSortBy, onFilterRating, 
 }
 
 export default connect(
-  (state) => ({
+  (state, ownProps) => ({
     filterFilms: state.filterFilms,
+    showMobileForm: ownProps.showMobileForm,
   }),
   dispatch => ({
     onFilterTitle: (title) => {
