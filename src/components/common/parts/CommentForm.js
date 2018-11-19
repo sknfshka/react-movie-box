@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const CommentForm = () => {
   return (
     <div className="comment-item">
-    <form className="comment-form">
+      <form className="comment-form">
           <h2 className="comment-form-title">Add new review</h2>
           <div> 
       
